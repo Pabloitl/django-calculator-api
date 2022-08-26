@@ -18,4 +18,5 @@ from django.urls import path
 from calculator.views import modulus
 
 urlpatterns = [
+    path("modulus/", modulus),
 ]

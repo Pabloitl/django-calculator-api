@@ -23,3 +23,8 @@ def process_binary_operation(request, operation: Operation):
         },
         status=HTTP_200_OK,
     )
+
+
+@api_view(["POST"])
+def modulus(request):
+    return process_binary_operation(request, ModulusOperation)
