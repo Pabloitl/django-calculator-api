@@ -1,0 +1,6 @@
+{
+    "*": {
+        "start": "pipenv run python manage.py runserver",
+        "console": "pipenv run python manage.py shell"
+    }
+}
