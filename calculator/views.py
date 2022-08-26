@@ -14,12 +14,23 @@ def process_binary_operation(request, operation: Operation):
     if not serializer.is_valid():
         return HttpResponse(status=HTTP_400_BAD_REQUEST)
 
+    first = serializer.validated_data.pop("first")
+    second = serializer.validated_data.pop("second")
+    result: float
+
+    try:
+        result = operation.apply(first, second)
+    except Exception as e:
+        return JsonResponse(
+            data={
+                "error": str(e),
+            },
+            status=HTTP_400_BAD_REQUEST,
+        )
+
     return JsonResponse(
         data={
-            "result": operation.apply(
-                serializer.validated_data.pop("first"),
-                serializer.validated_data.pop("second"),
-            ),
+            "result": result,
         },
         status=HTTP_200_OK,
     )
