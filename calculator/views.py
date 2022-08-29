@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 
 from calculator.serializers import BinaryFloatSerializer
-from calculator.utils import DivisionOperation, ModulusOperation, Operation
+from calculator.utils import DivisionOperation, ModulusOperation, Operation, SubstractionOperation
 
 
 def process_binary_operation(request, operation: Operation):
@@ -14,7 +14,7 @@ def process_binary_operation(request, operation: Operation):
     if not serializer.is_valid():
         return HttpResponse(status=HTTP_400_BAD_REQUEST)
 
-    first = serializer.validated_data.pop("first")
+    first  = serializer.validated_data.pop("first")
     second = serializer.validated_data.pop("second")
     result: float
 
@@ -44,3 +44,8 @@ def modulus(request):
 @api_view(["POST"])
 def division(request):
     return process_binary_operation(request, DivisionOperation)
+
+
+@api_view(["POST"])
+def substraction(request):
+    return process_binary_operation(request, SubstractionOperation)

@@ -18,3 +18,9 @@ class DivisionOperation:
     @classmethod
     def apply(cls, first: float, second: float) -> float:
         return first / second
+
+
+class SubstractionOperation:
+    @classmethod
+    def apply(cls, first: float, second: float) -> float:
+        return first - second
