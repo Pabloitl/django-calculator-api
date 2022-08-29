@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from calculator.views import modulus
+from calculator.views import division, modulus
 
 urlpatterns = [
     path("modulus/", modulus),
+    path("division/", division),
 ]
