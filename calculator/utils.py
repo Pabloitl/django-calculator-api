@@ -12,3 +12,9 @@ class ModulusOperation:
     @classmethod
     def apply(cls, first: float, second: float) -> float:
         return first % second
+
+
+class DivisionOperation:
+    @classmethod
+    def apply(cls, first: float, second: float) -> float:
+        return first / second
