@@ -30,3 +30,9 @@ class MultiplicationOperation:
     @classmethod
     def apply(cls, first: float, second: float) -> float:
         return first * second
+
+
+class AdditionOperation:
+    @classmethod
+    def apply(cls, first: float, second: float) -> float:
+        return first + second
