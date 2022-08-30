@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 
 from calculator.serializers import BinaryFloatSerializer
-from calculator.utils import DivisionOperation, ModulusOperation, Operation, SubstractionOperation
+from calculator.utils import DivisionOperation, ModulusOperation, MultiplicationOperation, Operation, SubstractionOperation
 
 
 def process_binary_operation(request, operation: Operation):
@@ -49,3 +49,8 @@ def division(request):
 @api_view(["POST"])
 def substraction(request):
     return process_binary_operation(request, SubstractionOperation)
+
+
+@api_view(["POST"])
+def multiplication(request):
+    return process_binary_operation(request, MultiplicationOperation)
