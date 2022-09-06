@@ -1,7 +1,7 @@
 from typing import Protocol
 
 
-# Command pattern
+# Strategy pattern
 class Operation(Protocol):
     @classmethod
     def apply(cls, first: float, second: float) -> float:
